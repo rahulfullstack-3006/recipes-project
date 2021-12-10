@@ -1,0 +1,25 @@
+<p>server works!</p>
+<div class="container">
+    <div class="row">
+        <!-- <input type="text" (input)="onUpdateServer($event)"/> -->
+        <!-- <input type="text" class="form-control" [(ngModel)]="serverValue"/> -->
+        <input  type="text" class="form-control" [(ngModel)]="username"/>
+        <p [ngStyle]="{backgroundColor:getColour()}">{{username}}</p>
+
+        <button class="btn btn-primary" [disabled]="username === ''" (click)="username = '' ">Reset</button>
+       
+
+        {{serverValue}}
+        <!-- <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button> -->
+       <p>{{serverStatus}}</p> 
+
+       <!-- <button (click)="showClick =!showClick">Display Details</button> -->
+       <button (click)="createToggle()">Display Details</button>
+       <div *ngFor="let logItem of log ;let i=index" [ngStyle]="{backgroundColor:i >=5?'blue':'transparent'}">
+          
+       {{logItem}}
+       </div>
+
+       <p *ngIf="showClick">Secret Password</p>
+    </div>
+</div>
